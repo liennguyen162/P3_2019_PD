@@ -1,15 +1,50 @@
 ####
 # Each team's file must define four tokens:
 #     team_name: a string
-#     strategy_name: a string
-#     strategy_description: a string
+#     strategy_name: a string.#     strategy_description: a string
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'The name the team gives to itself' # Only 10 chars displayed.
-strategy_name = 'The name the team gives to this strategy'
-strategy_description = 'How does this strategy decide?'
-    
+team_name = 'ALT' # Only 10 chars displayed.
+strategy_name = 'Always Collude'
+strategy_description = 'The user always chooses collude, never chooses betray.'
+#BELOW 
+
+def strategy1(my_history, their_history, my_score, their_score):
+    return 'c'
+#___________________________________________    
+team_name = 'ALT' # Only 10 chars displayed.
+strategy_name = 'Always betray'
+strategy_description = 'The user always chooses betray, never chooses collude.' 
+#BELOW
+
+def strategy2(my_history, their_history, my_score, their_score):
+    return 'b'
+#____________________________________________    
+team_name = 'ALT' # Only 10 chars displayed.
+strategy_name = 'First collude, then betray'
+strategy_description = 'first choose collude, then collude again, then betray - repeat this pattern.'
+#BELOW
+
+def strategy3(my_history, their_history, my_score, their_score):
+    if len(my_history)%3 == 0:
+        return 'b'
+    else:
+        return 'c'
+#_____________________________________________
+team_name = 'ALT' # Only 10 chars displayed.
+strategy_name = 'First collude, then betray'
+strategy_description = 'If the my history and their history '
+#BELOW
+
+def strategy4(my_history, their_history, my_score, their_score):
+    if len(my_history)%2 == 0:
+        return 'c'
+    elif my_history[-1]=='c' and their_history[-1]=='c':
+        return 'b'
+    else:
+        return 'c'
+#_____________________________________________    
 def move(my_history, their_history, my_score, their_score):
     ''' Arguments accepted: my_history, their_history are strings.
     my_score, their_score are ints.
@@ -65,4 +100,14 @@ if __name__ == '__main__':
               # move('bbb', 'ccc', 0, 0) returns 'b'.
               my_score=0, 
               their_score=0,
-              result='b')             
+              result='b')   
+              
+                        
+ # Test 1
+def test_move():
+    if test_move(my_history='',
+                 their_history='',
+                 my_score=0,
+                 their_score=0,
+                 result='b'):
+         print 'Test passed'          
