@@ -32,11 +32,12 @@ def strategy3(my_history, their_history, my_score, their_score):
     else:
         return 'c'
 #_____________________________________________
+'''
 team_name = 'ALT' # Only 10 chars displayed.
 strategy_name = 'last Move'
 strategy_description = 'If the length of the users history is divisible by two then you would collude, but if the last move of both you and your opponent is collude then you would betray, otherwise you collude.'
 #BELOW
-'''
+
 def move(my_history, their_history, my_score, their_score):
     if len(my_history)%2 == 0:
         return 'c'
